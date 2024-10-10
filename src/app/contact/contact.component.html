@@ -1,0 +1,58 @@
+
+<style>
+    .container
+    {
+        margin-top: 100px;
+        
+       
+    }
+
+     .container .card-body th{
+        color:rgb(234, 234, 234);
+        letter-spacing: 1px;
+        text-align: center;
+     }
+     tbody,th,.card-body
+     {
+        background-color: gray;
+     }
+
+     tbody,td
+     {
+        border: 2px solid rgb(255, 255, 255);
+     }
+     tbody td
+     {
+        text-transform:capitalize;
+     }
+
+
+
+</style>
+
+<div class="container">
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                <tr>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Email</th>
+                    <th>CreationDate</th>
+                </tr>
+                <tbody *ngFor="let ct of contact">
+                    <tr>
+                        <td>{{ct.name}}</td>
+                        <td>{{ct.surname}}</td>
+                        <td>{{ct.email}}</td> 
+                        <td>{{ct.creationDate| date:'dd/MM/yyyy'}}</td>
+                       
+
+                        <td><a class="btn btn-danger" (click)=" deleteContact(ct)">Delete</a></td>
+                         <td><a class="btn btn-success" [routerLink]="['/updateProduit',ct.email]">update</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
